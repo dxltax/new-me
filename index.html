@@ -3,30 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Me</title>
+    <title>new-me | Delta's Journey</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Journey</h1>
-        <nav>
-            <ul>
-                <li><a href="#" onclick="loadContent('about')">About Me</a></li>
-                <li><a href="#" onclick="loadContent('heartbreak')">Heartbreak Diary</a></li>
-                <li><a href="#" onclick="loadContent('thoughts')">Personal Thoughts</a></li>
-                <li><a href="#" onclick="loadContent('playlist')">Spotify Playlist</a></li>
-                <li><a href="#" onclick="loadContent('secret')">Secret Page</a></li>
-            </ul>
-        </nav>
+        <h1>new-me</h1>
+        <p>a personal archive by Delta</p>
     </header>
 
-    <div id="content">
-        <!-- Content will be loaded here dynamically -->
-    </div>
+    <main class="grid-container">
+        <div class="card" onclick="loadContent('about')">
+            <h2>Me, Myself & I</h2>
+            <p>Things that define me—facts, quirks, and more.</p>
+        </div>
+        <div class="card" onclick="loadContent('feel')">
+            <h2>What I Feel</h2>
+            <p>My heartbreak diary and healing process.</p>
+        </div>
+        <div class="card" onclick="loadContent('thoughts')">
+            <h2>What I Thoughts</h2>
+            <p>My takes on life, law, love, and society.</p>
+        </div>
+        <div class="card" onclick="loadContent('spotify')">
+            <h2>Spotify</h2>
+            <p>Playlists that match my current vibe.</p>
+        </div>
+        <div class="card" onclick="loadContent('secret')">
+            <h2>Only You Can Open This Page</h2>
+            <p>A hidden page for someone special.</p>
+        </div>
+    </main>
 
-    <footer>
-        <p>Created with love by Delta</p>
-    </footer>
+    <div id="content"></div>
 
     <script src="script.js"></script>
 </body>
