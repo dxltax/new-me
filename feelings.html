@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>What I Feel</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What I Feel</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header class="main-header">
-        <h1>What I Feel</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Me</a>
-        </nav>
-    </header>
+  <header class="tumblr-header">
+    <div class="logo">new-me</div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search diaries..." />
+      <span>🔍</span>
+    </div>
+  </header>
 
-    <main class="diary-container">
-        <section class="diary-post">
-            <div class="post-header">
-                <img src="093F2D22-7941-439C-B029-4D4308C9B1DA.jpeg" alt="Profile" class="profile-pic">
-                <div>
-                    <p class="username">delta</p>
-                    <p class="post-date">April 23, 2025</p>
-                </div>
-            </div>
-            <div class="post-content">
-                <p>This is where your heartbreak diary goes... tulis apa pun yang kamu rasain hari ini di sini.</p>
-            </div>
-            <div class="fake-actions">
-                <a href="#">♡ Like (12)</a>
-                <a href="#">Share</a>
-            </div>
-            <div class="fake-comments">
-                <p><strong>@visitor01:</strong> Sending love your way!</p>
-                <p><strong>@healingmode:</strong> Same boat. It gets better.</p>
-            </div>
-        </section>
-    </main>
+  <main class="tumblr-feed" id="postContainer">
+    <!-- Diary Post 1 -->
+    <div class="post">
+      <div class="post-header">
+        <img src="093F2D22-7941-439C-B029-4D4308C9B1DA.jpeg" alt="Profile" class="post-profile">
+        <div>
+          <h3 class="username">Delta</h3>
+          <p class="date">April 23, 2025</p>
+        </div>
+      </div>
+      <div class="post-content">
+        <p><strong>I didn’t just move on, I leveled up.</strong></p>
+        <p>At first, it was just about surviving. One day at a time. Breathing through the ache she left behind.</p>
+        <p>I didn’t have a roadmap. Didn’t know when it would stop hurting. I just kept going, even when it felt pointless. But somewhere along the way, something shifted. The pain didn’t disappear, I just got stronger.</p>
+        <p>I started showing up for myself. Fixing what I ignored. Focusing on what I used to put last, <strong>ME</strong>.</p>
+        <p>I found joy in small wins. In peaceful mornings. In people who stayed. And suddenly, it wasn’t about her anymore. It was about the person I was becoming without her.</p>
+        <p>I didn’t just let go of the past. I built a new future, one where I don’t settle for less than I deserve. So no, I didn’t just move on. I grew up. I glowed up. And I’m just getting started.</p>
+      </div>
+      <div class="post-actions">
+        <span>❤️ Like</span>
+        <span>💬 Comment</span>
+        <span>↗️ Share</span>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const posts = document.querySelectorAll('.post');
+
+    searchInput.addEventListener('input', function () {
+      const keyword = this.value.toLowerCase();
+      posts.forEach(post => {
+        const content = post.textContent.toLowerCase();
+        post.style.display = content.includes(keyword) ? 'block' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>
