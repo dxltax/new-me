@@ -1,46 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>new-me | Delta's Journey</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>new-me</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header class="header-inline">
-    <img src="093F2D22-7941-439C-B029-4D4308C9B1DA.jpeg" alt="Delta's Profile Photo" class="profile-pic-small">
-    <div class="header-text">
-        <h1>new-me</h1>
-        <p>a personal archive by Delta</p>
+  <header>
+    <div class="header-left">
+      <img src="093F2D22-7941-439C-B029-4D4308C9B1DA.jpeg" alt="Profile Photo" class="profile-pic" />
+      <h1 class="site-title">new-me</h1>
     </div>
-</header>
+  </header>
 
-    <main class="grid-container">
-        <div class="card" onclick="loadContent('about')">
-            <h2>Me, Myself & I</h2>
-            <p>Things that define me—facts, quirks, and more.</p>
-        </div>
-        <div class="card" onclick="loadContent('feel')">
-            <h2>What I Feel</h2>
-            <p>My heartbreak diary and healing process.</p>
-        </div>
-        <div class="card" onclick="loadContent('thoughts')">
-            <h2>What I Thoughts</h2>
-            <p>My takes on life, law, love, and society.</p>
-        </div>
-        <div class="card" onclick="loadContent('spotify')">
-            <h2>Spotify</h2>
-            <p>Playlists that match my current vibe.</p>
-        </div>
-        <div class="card" onclick="loadContent('secret')">
-            <h2>Only You Can Open This Page</h2>
-            <p>A hidden page for someone special.</p>
-        </div>
-    </main>
-
-    <div id="content"></div>
-
-    <script src="script.js"></script>
+  <main class="grid-container">
+    <a href="about.html" class="card">
+      <h2>Me, Myself & I</h2>
+      <p>Things that define me—facts, quirks, and more.</p>
+    </a>
+    <a href="feelings.html" class="card">
+      <h2>What I Feel</h2>
+      <p>My heartbreak diary and healing process.</p>
+    </a>
+    <a href="thoughts.html" class="card">
+      <h2>What I Thoughts</h2>
+      <p>My takes on life, love, and society.</p>
+    </a>
+    <a href="spotify.html" class="card">
+      <h2>Spotify</h2>
+      <p>Playlists that reflect my mood and story.</p>
+    </a>
+    <a href="secret.html" class="card">
+      <h2>Not Everybody's Cup of Tea</h2>
+      <p>Enter the right password to see this hidden part of me.</p>
+    </a>
+  </main>
 </body>
 </html>
