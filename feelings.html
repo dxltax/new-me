@@ -4,52 +4,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>What I Feel</title>
-  <link rel="stylesheet" href="feelings.css" />
+  <link rel="stylesheet" href="feeling.css" />
 </head>
 <body>
-  <header class="tumblr-header">
-    <div class="logo">Diaries</div>
+  <header class="feelings-header">
+    <div class="logo">What I Feel</div>
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search diaries..." />
       <span>🔍</span>
+      <input type="text" id="searchInput" placeholder="Search diary (e.g. heartbreak, joy, 💔)">
     </div>
   </header>
 
-  <main class="tumblr-feed" id="postContainer">
+  <main class="diary-container">
     <!-- Diary Post 1 -->
-    <div class="post">
+    <div class="post-container" data-content="move on healed self love glow up heartbreak pain">
       <div class="post-header">
-        <img src="093F2D22-7941-439C-B029-4D4308C9B1DA.jpeg" alt="Profile" class="post-profile">
-        <div>
-          <h3 class="username">Delta</h3>
-          <p class="date">April 23, 2025</p>
+        <img src="88AF5486-817D-4673-9566-81386640FD0E.jpeg" alt="Profile" class="post-profile-pic" />
+        <div class="post-meta">
+          <div class="post-name">Delta</div>
+          <div class="post-date">April 23, 2025</div>
         </div>
       </div>
       <div class="post-content">
-        <p><strong>I didn’t just move on, I leveled up.</strong></p>
+        <p>I didn’t just move on, I leveled up.</p>
         <p>At first, it was just about surviving. One day at a time. Breathing through the ache she left behind.</p>
         <p>I didn’t have a roadmap. Didn’t know when it would stop hurting. I just kept going, even when it felt pointless. But somewhere along the way, something shifted. The pain didn’t disappear, I just got stronger.</p>
-        <p>I started showing up for myself. Fixing what I ignored. Focusing on what I used to put last, <strong>ME</strong>.</p>
+        <p>I started showing up for myself. Fixing what I ignored. Focusing on what I used to put last, ME.</p>
         <p>I found joy in small wins. In peaceful mornings. In people who stayed. And suddenly, it wasn’t about her anymore. It was about the person I was becoming without her.</p>
         <p>I didn’t just let go of the past. I built a new future, one where I don’t settle for less than I deserve. So no, I didn’t just move on. I grew up. I glowed up. And I’m just getting started.</p>
       </div>
       <div class="post-actions">
         <span>❤️ Like</span>
         <span>💬 Comment</span>
-        <span>↗️ Share</span>
+        <span>🔗 Share</span>
       </div>
     </div>
   </main>
 
   <script>
-    const searchInput = document.getElementById('searchInput');
-    const posts = document.querySelectorAll('.post');
-
-    searchInput.addEventListener('input', function () {
+    document.getElementById('searchInput').addEventListener('input', function() {
       const keyword = this.value.toLowerCase();
+      const posts = document.querySelectorAll('.post-container');
+
       posts.forEach(post => {
-        const content = post.textContent.toLowerCase();
-        post.style.display = content.includes(keyword) ? 'block' : 'none';
+        const content = post.dataset.content.toLowerCase();
+        if (content.includes(keyword)) {
+          post.style.display = 'block';
+        } else {
+          post.style.display = 'none';
+        }
       });
     });
   </script>
