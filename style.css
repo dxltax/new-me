@@ -62,14 +62,28 @@ header p {
     max-width: 800px;
     margin: 0 auto;
 }
-.profile-pic {
-    width: 120px;
-    height: 120px;
+.header-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.profile-pic-small {
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header-text h1 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.header-text p {
+    font-size: 0.95em;
+    color: #777;
 }
