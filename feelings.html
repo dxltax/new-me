@@ -53,23 +53,21 @@
     const postsPerPage = 5;
 
     function createPostHTML(entry) {
-      return `
-        <div class="post">
-          <div class="post-header">
-            <img src="093F2D22-7941-439C-B029-4D4308C9B1DA.jpeg" alt="Profile" class="post-profile">
-            <div>
-              <h3 class="username">Delta</h3>
-              <p class="date">${entry.date}</p>
-            </div>
-          </div>
-          <div class="post-content">${entry.content}</div>
-          <div class="post-actions">
-            <span>❤️ Like</span>
-            <span>💬 Comment</span>
-            <span>↗️ Share</span>
-          </div>
-        </div>`;
-    }
+  return `
+    <div class="post">
+      <div class="post-header">
+        <img src="093F2D22-7941-439C-B029-4D4308C9B1DA.jpeg" alt="Profile" class="post-profile">
+        <div>
+          <h3 class="username">Delta</h3>
+          <p class="date">${entry.date}</p>
+        </div>
+      </div>
+      <div class="post-content">${entry.content}</div>
+      <div class="post-actions">
+        <button class="share-btn" onclick="sharePost(\`${stripHTML(entry.content)}\`)">↗️ Share</button>
+      </div>
+    </div>`;
+}
 
     function displayPosts() {
       const keyword = searchInput.value.toLowerCase();
@@ -95,6 +93,27 @@
 
     // Load awal
     displayPosts();
+    function stripHTML(html) {
+  const div = document.createElement('div');
+  div.innerHTML = html;
+  return div.innerText;
+}
+
+function sharePost(content) {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Diary from Delta',
+      text: content,
+      url: window.location.href
+    }).then(() => {
+      console.log('Shared successfully');
+    }).catch((err) => {
+      console.error('Share failed:', err);
+    });
+  } else {
+    alert("Sharing is not supported on this browser.");
+  }
+}
   </script>
 </body>
 </html>
