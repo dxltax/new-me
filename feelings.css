@@ -149,3 +149,16 @@ body {
 #loadMoreBtn:hover {
   background: #555;
 }
+.share-btn {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-family: inherit;
+}
+
+.share-btn:hover {
+  text-decoration: underline;
+}
