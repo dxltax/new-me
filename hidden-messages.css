@@ -1,66 +1,68 @@
+/* hidden-message.css */
+
 body {
-  background-color: #0f0f0f;
-  color: #f1e4e4;
-  font-family: 'Georgia', serif;
   margin: 0;
   padding: 0;
+  background-color: #1a1a1a;
+  font-family: 'Georgia', serif;
+  color: #f2f2f2;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: 40px;
   min-height: 100vh;
 }
 
-.message-container {
-  max-width: 700px;
+.chat-container {
   width: 90%;
-  padding: 40px;
-  background: rgba(24, 24, 24, 0.9);
-  box-shadow: 0 0 20px rgba(255, 182, 193, 0.2);
-  border-radius: 16px;
-  text-align: center;
-}
-
-h1 {
-  color: #ffb6c1;
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
-.intro {
-  font-style: italic;
-  margin-bottom: 30px;
-  color: #ccc;
-  font-size: 1rem;
-}
-
-.messages {
+  max-width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
-.message-card {
-  background: #1b1b1b;
-  border: 1px solid #444;
+.chat-bubble {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 182, 193, 0.2);
+  border-left: 4px solid #ffb6c1;
+  padding: 18px 20px;
   border-radius: 12px;
-  padding: 20px;
-  text-align: left;
-  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 4px 14px rgba(255, 192, 203, 0.15);
+  transition: transform 0.3s ease;
+  position: relative;
 }
 
-.message-card:hover {
-  background: #222;
-  transform: translateY(-5px);
+.chat-bubble:hover {
+  transform: translateY(-3px);
 }
 
-.message-date {
-  font-size: 0.85em;
-  color: #999;
-  margin-bottom: 10px;
+.chat-meta {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 8px;
+  font-style: italic;
 }
 
-.message-text {
-  font-size: 1.1em;
-  line-height: 1.6;
-  color: #f9d7d7;
+.chat-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+  white-space: pre-wrap;
+}
+
+.chat-image {
+  width: 100%;
+  margin-top: 12px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  box-shadow: 0 2px 10px rgba(255, 192, 203, 0.1);
+}
+
+/* Optional: scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffb6c1;
+  border-radius: 4px;
 }
