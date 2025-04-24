@@ -40,12 +40,12 @@ header h1 {
 .chat-bubble::after {
   content: '';
   position: absolute;
-  right: -8px;
-  bottom: 8px;
-  width: 12px;
-  height: 12px;
+  right: -6px;
+  bottom: 10px;
+  width: 14px;
+  height: 14px;
   background-color: #ffb6c1;
-  border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 14px;
   transform: rotate(-45deg);
   box-shadow: -1px 1px 0 rgba(0, 0, 0, 0.1);
 }
@@ -63,6 +63,8 @@ header h1 {
   line-height: 1.4em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 500;
+  font-size: 0.95em;
+  letter-spacing: 0.1px;
 }
 
 .chat-image {
@@ -74,20 +76,17 @@ header h1 {
   border: 1px solid #2c2c2e;
 }
 
-#replyForm button {
-  display: block;
-  margin-left: 8px;
-  padding: 10px 16px;
-  border-radius: 12px;
-  background-color: #ffb6c1;
-  color: #121212;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
+#replyForm {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  gap: 8px;
+  margin-top: 20px;
 }
+
 #replyInput {
-  width: 80%;
-  max-width: 400px;
+  flex: 1;
   padding: 12px 14px;
   border-radius: 20px;
   border: none;
@@ -95,6 +94,16 @@ header h1 {
   background-color: #1e1e1e;
   color: white;
   outline: none;
+}
+
+#replyForm button {
+  padding: 10px 16px;
+  border-radius: 12px;
+  background-color: #ffb6c1;
+  color: #121212;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .back-home {
