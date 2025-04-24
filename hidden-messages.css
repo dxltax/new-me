@@ -38,10 +38,11 @@ header h1 {
 }
 
 .chat-meta {
-  font-size: 0.7em;
-  color: #eee;
+  font-size: 0.75em;
+  color: #f8f8f8; /* dari #eee jadi lebih cerah */
   margin-bottom: 4px;
-  opacity: 0.8;
+  font-weight: 500; /* biar gak terlalu tipis */
+  opacity: 0.9;
 }
 
 .chat-text {
@@ -58,17 +59,17 @@ header h1 {
   border: 1px solid #2c2c2e;
 }
 
-#replyForm {
-  position: fixed;
-  bottom: 60px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  background-color: #121212;
+#replyForm button {
+  display: block;
+  margin-left: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background-color: #ffb6c1;
+  color: #121212;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
 }
-
 #replyInput {
   width: 80%;
   max-width: 400px;
