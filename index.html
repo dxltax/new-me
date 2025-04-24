@@ -3,38 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>new-me</title>
+  <title>Personal Archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #000000, #ff69b4);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .header {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .chat-list {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .chat-item {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .chat-item h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .chat-item p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #ddd;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-around;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.7rem 0;
+    }
+
+    .nav-bar i {
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
-    <div class="header-left">
+  <div class="app-container">
+    <div class="header">
       <img src="093F2D22-7941-439C-B029-4D4308C9B1DA.jpeg" alt="Profile Photo" class="profile-pic" />
-      <h1 class="site-title">Personal Archive</h1>
+      <div class="title">Personal Archive</div>
     </div>
-  </header>
 
-  <main class="grid-container">
-    <a href="about.html" class="card">
-      <h2>Sugar & Soul</h2>
-      <p>Bits of me, sweet and sincere.</p>
-    </a>
-    <a href="feelings.html" class="card">
-      <h2>Echoes of My Heart</h2>
-      <p>A soft symphony of heartbreak and healing.</p>
-    </a>
-    <a href="locked.html" class="card">
-  <h2>My Paper Garden</h2>
-  <p>This page is locked for now.</p>
-</a>
-<a href="locked.html" class="card">
-  <h2>My Soundtrack Diary</h2>
-  <p>This page is locked for now.</p>
-</a>
-<a href="secret.html" class="card">
-  <h2>Not for Every Teacup</h2>
-  <p>A riddle to sip before you enter.</p>
-</a>
-  </main>
+    <div class="chat-list">
+      <a href="about.html" class="chat-item">
+        <h3>Sugar & Soul</h3>
+        <p>Bits of me, sweet and sincere.</p>
+      </a>
+      <a href="feelings.html" class="chat-item">
+        <h3>Echoes of My Heart</h3>
+        <p>A soft symphony of heartbreak and healing.</p>
+      </a>
+      <a href="locked.html" class="chat-item">
+        <h3>My Paper Garden</h3>
+        <p>This page is locked for now.</p>
+      </a>
+      <a href="locked.html" class="chat-item">
+        <h3>My Soundtrack Diary</h3>
+        <p>This page is locked for now.</p>
+      </a>
+      <a href="secret.html" class="chat-item">
+        <h3>Not for Every Teacup</h3>
+        <p>A riddle to sip before you enter.</p>
+      </a>
+    </div>
+
+    <div class="nav-bar">
+      <i class="fas fa-comment-dots"></i>
+      <i class="fas fa-compass"></i>
+      <i class="fas fa-phone"></i>
+      <i class="fas fa-user"></i>
+    </div>
+  </div>
 </body>
 </html>
