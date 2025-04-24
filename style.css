@@ -11,7 +11,7 @@ img {
 
 /* ===================== HOMEPAGE (Chat UI) ===================== */
 .homepage {
-  background: linear-gradient(to bottom, #000000, #ff69b4);
+  background: linear-gradient(to bottom, #121212, #ff69b4);
   color: white;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ img {
   align-items: center;
   gap: 10px;
   padding: 16px;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
 }
 
@@ -173,7 +173,8 @@ img {
   color: #666;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-/* Bottom Navigation Style */
+
+/* ===================== BOTTOM NAVIGATION ===================== */
 .bottom-nav {
   position: fixed;
   bottom: 0;
