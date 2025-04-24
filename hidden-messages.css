@@ -39,10 +39,11 @@ header h1 {
 
 .chat-meta {
   font-size: 0.75em;
-  color: #f8f8f8; /* dari #eee jadi lebih cerah */
+  color: #f8f8f8;
   margin-bottom: 4px;
-  font-weight: 500; /* biar gak terlalu tipis */
-  opacity: 0.9;
+  font-weight: 500;
+  opacity: 1;
+  text-shadow: 0 0 2px #000;
 }
 
 .chat-text {
@@ -83,7 +84,15 @@ header h1 {
 }
 
 #replyForm button {
-  display: none;
+  display: block;
+  margin-left: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background-color: #ffb6c1;
+  color: #121212;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .back-home {
