@@ -83,18 +83,6 @@ header h1 {
   outline: none;
 }
 
-#replyForm button {
-  display: block;
-  margin-left: 8px;
-  padding: 10px 16px;
-  border-radius: 12px;
-  background-color: #ffb6c1;
-  color: #121212;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 .back-home {
   position: fixed;
   bottom: 15px;
