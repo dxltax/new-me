@@ -7,10 +7,12 @@
   <link rel="stylesheet" href="hidden-messages.css" />
 </head>
 <body>
-  <a href="index.html" style="text-decoration: none; color: #007aff; font-size: 0.9em; margin-bottom: 20px; display: inline-block;">
-  ← Back to Homepage
-</a>
+  <header>
+    <h1>Words Left Unsent</h1>
+  </header>
+
   <div class="chat-container">
+    <!-- Chat Bubble Example -->
     <div class="chat-bubble">
       <div class="chat-meta">You · 23 April 2025</div>
       <div class="chat-text">
@@ -25,23 +27,22 @@
       </div>
       <img src="IMG_5932.jpeg" alt="Photo" class="chat-image">
     </div>
+    
+    <!-- Reply Input Box -->
+    <div class="reply-box">
+      <textarea id="replyInput" placeholder="Reply..." class="reply-input"></textarea>
+      <button class="send-button" onclick="sendToWhatsApp()">Send</button>
+    </div>
   </div>
-  <a href="https://wa.me/12392663757" target="_blank" style="
-  display: block;
-  margin-top: 40px;
-  text-align: center;
-  background-color: #25D366;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 24px;
-  font-weight: bold;
-  text-decoration: none;
-  max-width: 280px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-">
-  Chat Aku di WhatsApp
-</a>
+
+  <a href="index.html" class="back-to-homepage">← Back to Homepage</a>
+
+  <script>
+    function sendToWhatsApp() {
+      const replyText = document.getElementById('replyInput').value.trim();
+      const whatsappLink = `https://wa.me/6281234567890?text=${encodeURIComponent(replyText)}`; // Ganti dengan nomor WhatsApp kamu
+      window.open(whatsappLink, '_blank');
+    }
+  </script>
 </body>
 </html>
