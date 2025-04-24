@@ -13,39 +13,57 @@
       background: linear-gradient(to bottom right, #000000, #ff69b4);
       color: white;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
     }
 
+    .call-container {
+      width: 80%;
+      max-width: 400px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .warning-message {
+      background-color: #ff3333;
+      color: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
     .call-button {
-      padding: 15px 30px;
       background-color: #ff69b4;
       color: white;
-      font-size: 18px;
+      padding: 10px 20px;
       border-radius: 10px;
+      font-size: 1.2rem;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s ease;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
     }
 
     .call-button:hover {
-      background-color: #ff47a1;
-    }
-
-    .call-button i {
-      font-size: 1.5rem;
+      background-color: #e62e92;
     }
   </style>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <a href="tel:+12392663757" class="call-button" title="Call Me">
-    <i class="fas fa-phone-alt"></i> Call Me
-  </a>
+  <div class="call-container">
+    <div class="warning-message">
+      <p>📞 **Warning**: This phone line is for business or work-related calls only. All other inquiries will not be entertained.</p>
+    </div>
+    <a href="tel:+12392663757" class="call-button" title="Call me">
+      Call Now
+    </a>
+  </div>
 </body>
 </html>
