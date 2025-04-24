@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="hidden-messages.css" />
 </head>
 <body>
-
   <header>
     <h1>Words Left Unsent</h1>
   </header>
@@ -27,14 +26,22 @@
       </div>
       <img src="IMG_5932.jpeg" alt="Photo" class="chat-image">
     </div>
-
-    <div class="reply-box">
-      <textarea class="reply-input" placeholder="Reply..."></textarea>
-      <a href="https://wa.me/12392663757" target="_blank" class="send-button">Send to WhatsApp</a>
-    </div>
   </div>
 
-  <a href="index.html" class="back-to-homepage">← Back to Homepage</a>
+  <form id="replyForm">
+    <input type="text" id="replyInput" placeholder="Reply..." required />
+    <button type="submit">Send</button>
+  </form>
 
+  <a href="index.html" class="back-home">← Back to Homepage</a>
+
+  <script>
+    document.getElementById('replyForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const message = document.getElementById('replyInput').value;
+      const url = `https://wa.me/12392663757?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    });
+  </script>
 </body>
 </html>
