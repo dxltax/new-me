@@ -107,14 +107,12 @@ header h1 {
 }
 
 .back-home {
-  position: fixed;
-  bottom: 80px; /* Sebelumnya 15px, digeser ke atas sedikit */
-  left: 50%;
-  transform: translateX(-50%);
-  text-decoration: none;
+  display: block;
+  margin-top: 24px;
+  text-align: center;
   font-size: 0.85em;
   color: #ffb6c1;
-  background-color: transparent;
+  text-decoration: none;
 }
 .reply-wrapper {
   display: flex;
