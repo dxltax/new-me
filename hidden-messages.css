@@ -60,11 +60,16 @@ header h1 {
 
 .chat-text {
   white-space: pre-line;
-  line-height: 1.4em;
+  line-height: 1.3em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 500;
   font-size: 0.95em;
   letter-spacing: 0.1px;
+}
+
+.chat-text br + br {
+  line-height: 0;
+  margin: 0;
 }
 
 .chat-image {
