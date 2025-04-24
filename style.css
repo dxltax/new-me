@@ -22,10 +22,12 @@ img {
 .homepage header {
   display: flex;
   align-items: center;
+  justify-content: center; /* Agar isi header sejajar di tengah */
   gap: 10px;
   padding: 16px;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
+  width: 100%;
 }
 
 .homepage .profile-pic {
