@@ -1,69 +1,73 @@
 body {
-  background-color: #0d0d0d;
-  color: #fff;
-  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
   margin: 0;
-  padding: 20px;
+  background-color: #0e0e10;
+  font-family: 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  color: #e6e6e6;
+  display: flex;
+  justify-content: center;
+  padding: 30px 12px;
 }
 
 .chat-container {
   max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background: #1a1a1a;
-  border-radius: 16px;
-  box-shadow: 0 0 15px rgba(255, 182, 193, 0.2);
-  overflow-y: auto;
-  height: 90vh;
-}
-
-.message {
-  max-width: 80%;
-  padding: 12px 16px;
-  margin: 10px 0;
-  border-radius: 20px;
-  font-size: 16px;
-  line-height: 1.6;
-  position: relative;
-  word-wrap: break-word;
-}
-
-.message.me {
-  background-color: #007aff;
-  color: white;
-  align-self: flex-end;
-  margin-left: auto;
-  border-bottom-right-radius: 4px;
-}
-
-.message.them {
-  background-color: #2f2f2f;
-  color: #f1f1f1;
-  align-self: flex-start;
-  margin-right: auto;
-  border-bottom-left-radius: 4px;
-}
-
-.timestamp {
-  font-size: 12px;
-  color: #aaa;
-  margin-top: 5px;
-  text-align: right;
-}
-
-.message img {
-  max-width: 200px;
-  height: auto;
-  border-radius: 10px;
-  display: block;
-  margin-top: 10px;
-}
-
-.message-block {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 20px;
 }
-.message-block.me {
-  align-items: flex-end;
+
+.chat-bubble {
+  align-self: flex-end;
+  background-color: #007aff;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 20px;
+  border-bottom-right-radius: 4px;
+  max-width: 80%;
+  word-wrap: break-word;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.chat-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #007aff;
+  border-bottom: 0;
+  margin-left: -10px;
+  margin-bottom: -10px;
+}
+
+.chat-meta {
+  font-size: 0.75em;
+  color: #ccc;
+  margin-bottom: 6px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.chat-text {
+  font-size: 1em;
+  line-height: 1.4em;
+  white-space: pre-line;
+}
+
+.chat-image {
+  margin-top: 10px;
+  border-radius: 14px;
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border: 1px solid #333;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
