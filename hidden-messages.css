@@ -95,11 +95,8 @@ header h1 {
   width: 100%;
   max-width: 480px;
   gap: 8px;
-  margin-top: 20px;
-  position: absolute; /* Menjaga form tetap di bawah */
-  bottom: 20px; /* Jarak form dari bawah halaman */
-  left: 50%;
-  transform: translateX(-50%); /* Posisikan form di tengah */
+  margin-top: 20px; /* Kembali ke margin awal */
+  position: relative; /* Agar tetap berada di bawah area chat */
 }
 
 #replyInput {
@@ -125,15 +122,11 @@ header h1 {
 
 .back-home {
   display: block;
-  margin-top: 10px; /* Menjaga jarak tidak berubah */
+  margin-top: 20px; /* Pastikan jaraknya tetap konsisten */
   text-align: center;
   font-size: 0.85em;
   color: #ffb6c1;
   text-decoration: none;
-  position: absolute; /* Posisikan di bawah */
-  bottom: 80px; /* Menjaga jarak dari bawah */
-  left: 50%;
-  transform: translateX(-50%); /* Posisikan "Back to Home" di tengah */
 }
 
 .reply-wrapper {
