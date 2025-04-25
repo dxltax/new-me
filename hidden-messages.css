@@ -19,7 +19,7 @@ header h1 {
   width: 100%;
   max-width: 480px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   gap: 16px;
 }
 
