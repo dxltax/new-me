@@ -67,9 +67,8 @@ header h1 {
   letter-spacing: 0.1px;
 }
 
-.chat-text br + br {
-  line-height: 0;
-  margin: 0;
+.chat-text p {
+  margin: 0 0 0.5em 0; /* atau bisa 0.3em kalau mau lebih rapat lagi */
 }
 
 .chat-image {
