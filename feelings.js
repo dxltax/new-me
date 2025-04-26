@@ -1,74 +1,61 @@
-// DATE PICKER
-document.addEventListener("DOMContentLoaded", function () {
-  const calendarButton = document.querySelector(".calendar-button");
-  const datePickerPopup = document.querySelector(".date-picker-popup");
-  const startDateInput = document.getElementById("startDate");
-  const endDateInput = document.getElementById("endDate");
-  const saveDateButton = document.getElementById("saveDateButton");
-  const calendarText = document.querySelector(".calendar-text");
+document.addEventListener('DOMContentLoaded', function() {
+  const calendarButton = document.getElementById('calendarButton');
+  const datePopup = document.getElementById('datePickerPopup');
+  const filterButton = document.getElementById('filterBtn');
+  const posts = document.querySelectorAll('.post');
 
-  if (calendarButton && datePickerPopup && startDateInput && endDateInput && saveDateButton && calendarText) {
-    calendarButton.addEventListener("click", () => {
-      datePickerPopup.style.display = datePickerPopup.style.display === "block" ? "none" : "block";
-    });
+  // Toggle tampil/sembunyi popup date picker
+  calendarButton.addEventListener('click', function() {
+    datePopup.style.display = (datePopup.style.display === 'block') ? 'none' : 'block';
+  });
 
-    saveDateButton.addEventListener("click", () => {
-      const startDate = startDateInput.value;
-      const endDate = endDateInput.value;
-      if (startDate && endDate) {
-        calendarText.textContent = `${formatDate(startDate)} - ${formatDate(endDate)}`;
-        datePickerPopup.style.display = "none";
+  // Filter diary berdasarkan tanggal
+  filterButton.addEventListener('click', function() {
+    const startInput = document.getElementById('startDate').value;
+    const endInput = document.getElementById('endDate').value;
+
+    if (!startInput || !endInput) {
+      alert('Please select both start and end dates.');
+      return;
+    }
+
+    const startDate = new Date(startInput);
+    const endDate = new Date(endInput);
+
+    posts.forEach(function(post) {
+      const postDateStr = post.getAttribute('data-date');
+      if (!postDateStr) {
+        post.style.display = 'block'; // Jika tidak ada tanggal, tampilkan
+        return;
+      }
+
+      const postDate = new Date(postDateStr);
+
+      if (postDate >= startDate && postDate <= endDate) {
+        post.style.display = 'block';
+      } else {
+        post.style.display = 'none';
       }
     });
-  }
 
-  function formatDate(dateStr) {
-    const [year, month, day] = dateStr.split("-");
-    return `${day}/${month}/${year}`;
-  }
-});
+    datePopup.style.display = 'none'; // Tutup popup setelah filter
+  });
 
-// LOAD MORE POSTS
-document.addEventListener("DOMContentLoaded", function () {
-  const posts = document.querySelectorAll(".post");
-  const loadMoreBtn = document.getElementById("loadMoreBtn");
-  const postsPerPage = 5;
-  let visiblePosts = postsPerPage;
+  // Share button ke Instastory (basic)
+  const shareButtons = document.querySelectorAll('.share-btn');
+  shareButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      const post = button.closest('.post');
+      html2canvas(post).then(canvas => {
+        const image = canvas.toDataURL('image/png');
 
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener("click", showMorePosts);
-    showPosts();
-  }
+        const link = document.createElement('a');
+        link.href = image;
+        link.download = 'my-diary.png';
+        link.click();
 
-  function showPosts() {
-    posts.forEach((post, index) => {
-      post.style.display = index < visiblePosts ? "block" : "none";
-    });
-
-    if (visiblePosts >= posts.length) {
-      loadMoreBtn.style.display = "none";
-    }
-  }
-
-  function showMorePosts() {
-    visiblePosts += postsPerPage;
-    showPosts();
-  }
-});
-
-// SEARCH POSTS
-document.addEventListener("DOMContentLoaded", function () {
-  const searchInput = document.getElementById("searchInput");
-
-  if (searchInput) {
-    searchInput.addEventListener("input", function () {
-      const query = this.value.trim().toLowerCase();
-      const posts = document.querySelectorAll(".post");
-
-      posts.forEach(post => {
-        const text = post.textContent.toLowerCase();
-        post.style.display = text.includes(query) ? "block" : "none";
+        alert('Diary saved! Silakan upload ke Instastory.');
       });
     });
-  }
+  });
 });
