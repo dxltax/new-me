@@ -327,18 +327,19 @@ body {
 #profile {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 15px;
 }
 
 .profile-picture {
-  width: 50px;
-  height: 50px;
+  width: 32px; /* kecil, kayak avatar Tumblr */
+  height: 32px;
   object-fit: cover;
   border-radius: 50%;
 }
 
 .username {
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff; /* atau warna teksmu */
 }
