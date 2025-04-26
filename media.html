@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Media</title>
+  <link rel="stylesheet" href="hidden-messages.css">
+  <style>
+    body {
+      margin: 0;
+      background-color: #0e0e10;
+      font-family: 'Courier New', Courier, monospace;
+      color: #ffb6c1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+    .spinner {
+      border: 4px solid #1e1e1e;
+      border-top: 4px solid #ffb6c1;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .message {
+      font-size: 1em;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .reload-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #ffb6c1;
+      color: #0e0e10;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.9em;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      display: none;
+    }
+    .reload-btn:hover {
+      background-color: #ff9bb0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="spinner" id="spinner"></div>
+  <div class="message" id="loadingMessage">Loading media...</div>
+  <button class="reload-btn" id="reloadButton" onclick="reloadPage()">🔄 Reload</button>
+
+  <script>
+    setTimeout(function() {
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('loadingMessage').innerHTML = "Oops, nothing to show yet...<br>Please come back later.";
+      document.getElementById('reloadButton').style.display = 'inline-block';
+    }, 5000); // 5 detik
+    function reloadPage() {
+      location.reload();
+    }
+  </script>
+
+</body>
+</html>
