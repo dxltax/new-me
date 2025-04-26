@@ -109,39 +109,6 @@ header h1 {
   object-fit: cover;
   border: 1px solid #2c2c2e;
 }
-
-/* Reply Box */
-#replyForm {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 480px;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-#replyInput {
-  flex: 1;
-  padding: 12px 14px;
-  border-radius: 20px;
-  border: none;
-  font-size: 0.95em;
-  background-color: #1e1e1e;
-  color: white;
-  outline: none;
-}
-
-#replyForm button {
-  padding: 10px 16px;
-  border-radius: 14px;
-  background-color: #ffb6c1;
-  color: #1a1a1a;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 /* Back Link */
 .back-home {
   margin-top: 20px;
