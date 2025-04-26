@@ -8,9 +8,11 @@
 </head>
 <body>
   <header>
-    <h1>Words Left Unsent</h1>
-  </header>
+  <h1>Messages You’ll Never Read</h1>
+  <div class="sort-options">🕒 Sort by Time</div>
+</header>
 
+<!-- ... chat-container remains as yours ... -->
   <div class="chat-container">
     <div class="chat-bubble">
   <div class="chat-meta">dxltax · 26 April 2025</div>
@@ -65,8 +67,12 @@
   </div>
 </form>
 
-<a href="index.html" class="back-home">← Back to Home</a>
-    </div>
+<!-- Add navbar at the bottom of the page -->
+<nav class="navbar">
+  <a href="index.html">🏠 Home</a>
+  <a href="#" onclick="openMessage()">💬 Message</a>
+  <a href="media.html">🖼️ Media</a>
+</nav>
 
   <script>
     document.getElementById('replyForm').addEventListener('submit', function(e) {
@@ -76,5 +82,24 @@
       window.open(url, '_blank');
     });
   </script>
+    <script>
+  function openMessage() {
+    const text = "I miss you. Let’s fix everything.";
+    const url = `https://wa.me/12392663757?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  }
+
+  function openProfile() {
+    // Ganti URL video nanti sesuai lokasi video kamu
+    window.open('your-video-url.mp4', '_blank');
+  }
+</script>
+    <script>
+  function openMessage() {
+    const text = "I miss you. Let’s fix everything.";
+    const url = `https://wa.me/12392663757?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  }
+</script>
 </body>
 </html>
