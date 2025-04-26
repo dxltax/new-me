@@ -78,16 +78,64 @@
   <a href="#" onclick="openMessage()">💬 Message</a>
   <a href="media.html">🖼️ Media</a>
 </nav>
-
-  <script>
-    document.getElementById('replyForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const message = document.getElementById('replyInput').value;
-      const url = `https://wa.me/12392663757?text=${encodeURIComponent(message)}`;
-      window.open(url, '_blank');
-    });
-  </script>
+    
     <script>
+  // Your JavaScript code for sorting and filtering here
+  function sortChats() {
+    const sortValue = document.getElementById('sort').value;
+    const chatContainer = document.querySelector('.chat-container');
+    const chatBubbles = Array.from(chatContainer.getElementsByClassName('chat-bubble'));
+
+    // Sorting chat bubbles based on the date in the .chat-meta
+    chatBubbles.sort((a, b) => {
+      const dateA = new Date(a.querySelector('.chat-meta').textContent.split('·')[1].trim());
+      const dateB = new Date(b.querySelector('.chat-meta').textContent.split('·')[1].trim());
+
+      if (sortValue === 'latest') {
+        return dateB - dateA;  // Sort by latest first
+      } else {
+        return dateA - dateB;  // Sort by oldest first
+      }
+    });
+
+    // Append sorted chat bubbles back to the container
+    chatBubbles.forEach(bubble => chatContainer.appendChild(bubble));
+  }
+
+  // Function to filter by image
+  function filterChats() {
+    const filterValue = document.getElementById('filter').value;
+    const chatBubbles = document.querySelectorAll('.chat-bubble');
+
+    chatBubbles.forEach(bubble => {
+      const hasImage = bubble.querySelector('.chat-image');
+      if (filterValue === 'all') {
+        bubble.style.display = 'block';
+      } else if (filterValue === 'with-image' && hasImage) {
+        bubble.style.display = 'block';
+      } else if (filterValue === 'no-image' && !hasImage) {
+        bubble.style.display = 'block';
+      } else {
+        bubble.style.display = 'none';
+      }
+    });
+  }
+
+  // Event listeners for changes in the sort and filter dropdowns
+  document.getElementById('sort').addEventListener('change', () => {
+    sortChats();
+    filterChats(); // To ensure the filter is applied after sorting
+  });
+  document.getElementById('filter').addEventListener('change', () => {
+    filterChats();
+    sortChats(); // To ensure the sorting is reapplied after filtering
+  });
+
+  // Initial call to make sure sorting and filtering work correctly on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    sortChats();
+    filterChats();
+  });
   function openMessage() {
     const text = "I miss you. Let’s fix everything.";
     const url = `https://wa.me/12392663757?text=${encodeURIComponent(text)}`;
