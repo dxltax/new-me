@@ -1,40 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>What I Feel</title>
-  <link rel="stylesheet" href="feelings.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diary Page</title>
+  <style>
+body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .calendar-icon {
+      cursor: pointer;
+      font-size: 24px;
+}
+    .popup {
+      display: none;
+      position: absolute;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      top: 70px;
+      left: 20px;
+      z-index: 10;
+    }
+    .popup input {
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .popup button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 4px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    .popup button.reset {
+      background-color: #f44336;
+    }
+    .diary-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .diary {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.5s forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    #loadMore {
+      margin-top: 20px;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <header class="tumblr-header">
-    <div class="logo">Diaries</div>
-    <div class="calendar-bar">
-  <button class="calendar-button" id="calendarButton">&#128197;</button>
-  <span class="calendar-text">Cari dari tanggal</span>
 
-  <div class="date-picker-popup" id="datePickerPopup">
-    <label>From:</label>
-    <input type="date" id="startDate">
-    <label>To:</label>
-    <input type="date" id="endDate">
-    <button id="filterButton">Show</button>
-    <button id="resetButton">Reset</button>
-  </div>
+<div class="header">
+  <div class="calendar-icon" id="calendarIcon">📅</div>
+  <span>Cari dari tanggal</span>
 </div>
-  </header>
 
-  <main class="tumblr-feed" id="postContainer"></main>
+<div class="popup" id="calendarPopup">
+  <input type="date" id="startDate">
+  <input type="date" id="endDate">
+  <button id="filterBtn">Filter</button>
+  <button class="reset" id="resetBtn">Reset</button>
+</div>
 
-  <div class="load-more-container">
-    <button id="loadMoreBtn">Load More</button>
-  </div>
+<div class="diary-container" id="diaryContainer">
+  <!-- Diary items nanti di-generate -->
+</div>
 
+<button id="loadMore">Load More</button>
   <script>
-    const diaries = [
+    const diaryData = [
       {
-  date: 'April 26, 2025',
-  content: `<p><strong>I don’t hate her. I don’t even blame her. I just finally accepted that love alone wasn’t enough.</strong></p>
+  date: '2025-04-26',
+  text: `<p><strong>I don’t hate her. I don’t even blame her. I just finally accepted that love alone wasn’t enough.</strong></p>
   <p>We loved each other. That part was real. No matter how it ended, I’ll never question that. But love, as powerful and beautiful as it is, can’t survive on its own.</p>
   <p>It needs space. It needs choice. It needs people who are ready for the same kind of fight. And maybe she wasn’t ready, or maybe she was tired. Either way, she made her choice.</p>
   <p>For a while, I kept asking why. Why she let go when I still held on. Why she stopped when I still believed.</p>
@@ -44,8 +115,8 @@
   <p>And that’s okay.</p>`
 },
       {
-  date: 'April 25, 2025',
-  content: `<p><strong>This isn’t the end of my story, it’s just a new chapter.</strong></p>
+  date: '2025-04-25',
+  text: `<p><strong>This isn’t the end of my story, it’s just a new chapter.</strong></p>
   <p>Sometimes, life hits hard. The kind of hit that leaves you breathless and unsure of what comes next. I never imagined I’d be here, trying to make sense of something that feels impossible to understand, but here I am.</p>
   <p>The truth is, I thought this love would last forever. I thought we’d figure it out. But some things aren’t meant to be forever.</p>
   <p>I spent so much time clinging to what we had, that I almost forgot what I had left, <strong>MYSELF</strong>.</p>
@@ -54,8 +125,8 @@
   <p>And maybe, someday, I’ll look back and thank the heartbreak. For teaching me that even in the hardest endings, there’s always the possibility of a beautiful new beginning.</p>`
 },
       {
-  date: 'April 24, 2025',
-  content: `<p><strong>I didn’t choose to walk away, but I chose to heal.</strong></p>
+  date: '2025-04-24',
+  text: `<p><strong>I didn’t choose to walk away, but I chose to heal.</strong></p>
   <p>When she left, I thought I was losing everything I’d built. But the truth is, I was only losing the part of me that was stuck in the past.</p>
   <p>I didn’t want to walk away. I didn’t want to let go. But sometimes, the best choice isn’t the one you want, it’s the one you need.</p>
   <p>I spent so much time wishing things were different, that I forgot to see what was in front of me, a chance to heal, to grow, to move forward.</p>
@@ -65,8 +136,8 @@
   <p>Now, I’m not waiting for closure. I’m creating it. Because sometimes, the only closure you need is the one you give yourself.</p>`
 },
       {
-  date: 'April 24, 2025',
-  content: `<p><strong>Some love stories don’t end because of lack of love, they end because the world made it too hard to hold on.</strong></p>
+  date: '2025-04-24',
+  text: `<p><strong>Some love stories don’t end because of lack of love, they end because the world made it too hard to hold on.</strong></p>
   <p>Ours didn’t end with a fight. No one cheated. No one lied. We simply ran out of room to exist.</p>
   <p>We loved each other. Fully. Quietly. Bravely. But even the strongest love needs space to breathe.</p>
   <p>The world around us didn’t give us that space. It made our love feel like a secret that had to be protected, until protecting it became too heavy.</p>
@@ -75,8 +146,8 @@
   <p>Maybe one day, the world will be softer. And love like ours won’t have to choose between survival and truth.</p>`
 },
       {
-  date: 'April 23, 2025',
-  content: `<p><strong>No one saw how much it hurt, but I kept healing anyway.</strong></p>
+  date: '2025-04-23',
+  text: `<p><strong>No one saw how much it hurt, but I kept healing anyway.</strong></p>
   <p>Breakups are weird. The world kept spinning while mine felt like it just fell apart. People told me “you’ll be okay” like it was a switch I could flip. But they didn’t see the nights I couldn’t sleep. The mornings I didn’t even want to get out of bed.</p>
   <p>No one truly knew what it took to hold myself together while the one person who felt like home stopped choosing me. I cried in private. I smiled in public. I pretended I was fine, until I almost believed it.</p>
   <p>But here’s the thing… I didn’t wait for anyone to save me. I picked myself up. I held my own hand. I whispered “I’ll be okay” even when it felt like a lie.</p>
@@ -84,8 +155,8 @@
   <p>They didn’t see how much it hurt. But look at me now, still standing. Still moving. Still becoming someone stronger than I ever expected.</p>`
 },
       {
-  date: 'April 19, 2025',
-  content: `<p><strong>She was a chapter, not the whole story.</strong></p>
+  date: '2025-04-20',
+  text: `<p><strong>She was a chapter, not the whole story.</strong></p>
   <p>For a long time, I treated her like the ending. Like once she left, nothing else would ever make sense. I thought she was the one. The final piece. The person I’d grow old with.</p>
   <p>But now I see her for what she truly was. A chapter. A meaningful one, yes. But still, just a chapter.</p>
   <p>She taught me how deeply I could feel. How much I could give. And what I should never settle for again. She helped me find parts of myself I didn’t know existed. And when she left, she took some of them with her, but not all of them.</p>
@@ -94,8 +165,8 @@
   <p>She wasn’t the whole book. She was just a chapter. And I’ve still got pages to turn.</p>`
 },
       {
-  date: 'April 18, 2025',
-  content: `<p><strong>I don’t wait for her anymore, and that’s how I know I’ve healed.</strong></p>
+  date: '2025-04-28',
+  text: `<p><strong>I don’t wait for her anymore, and that’s how I know I’ve healed.</strong></p>
   <p>I used to check my phone more than I’d like to admit. Waiting for her name to pop up. Waiting for “I miss you.”</p>
   <p>Every song felt like a message. Every quiet night felt like a chance for her to finally remember me.</p>
   <p>But hours turned into days. Days into weeks. And silence stayed loyal to her decision.</p>
@@ -105,8 +176,8 @@
   <p>I don’t wait for her anymore. Not because I hate her, but because I’m finally walking forward with both hands free.</p>`
 },
       {
-        date: 'April 16, 2025',
-        content: `<p><strong>I didn’t just move on, I leveled up.</strong></p>
+        date: '2025-04-16',
+        text: `<p><strong>I didn’t just move on, I leveled up.</strong></p>
         <p>At first, it was just about surviving. One day at a time. Breathing through the ache she left behind.</p>
         <p>I didn’t have a roadmap. Didn’t know when it would stop hurting. I just kept going, even when it felt pointless. But somewhere along the way, something shifted. The pain didn’t disappear, I just got stronger.</p>
         <p>I started showing up for myself. Fixing what I ignored. Focusing on what I used to put last, <strong>ME</strong>.</p>
@@ -114,8 +185,8 @@
         <p>I didn’t just let go of the past. I built a new future, one where I don’t settle for less than I deserve. So no, I didn’t just move on. I grew up. I glowed up. And I’m just getting started.</p>`
       },
       {
-        date: 'April 16, 2025',
-        content: `<p><strong>I’m not rushing into a new love. But I’m not closing my heart either.</strong></p>
+        date: '2025-04-16',
+        text: `<p><strong>I’m not rushing into a new love. But I’m not closing my heart either.</strong></p>
         <p>After her, I told myself I was done. No more getting attached. No more “what ifs.” Just me, myself, and healing.</p>
         <p>And for a while, that was exactly what I needed. Silence. Solitude. Space to rebuild.</p>
         <p>But lately, there’s been a shift. Not in a dramatic way, just in small, quiet thoughts like, “maybe one day…”</p>
@@ -127,74 +198,68 @@
       // Tambahkan diary baru di sini
     ];
 
-    const postContainer = document.getElementById('postContainer');
-    const searchInput = document.getElementById('searchInput');
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    let visibleCount = 0;
-    const postsPerPage = 5;
+    const calendarIcon = document.getElementById('calendarIcon');
+const calendarPopup = document.getElementById('calendarPopup');
+const diaryContainer = document.getElementById('diaryContainer');
+const loadMore = document.getElementById('loadMore');
+let shownCount = 0;
+const batchSize = 5;
 
-    function createPostHTML(entry) {
-  return `
-    <div class="post">
-      <div class="post-header">
-        <img src="093F2D22-7941-439C-B029-4D4308C9B1DA.jpeg" alt="Profile" class="post-profile">
-        <div>
-          <h3 class="username">Delta</h3>
-          <p class="date">${entry.date}</p>
-        </div>
-      </div>
-      <div class="post-content">${entry.content}</div>
-      <div class="post-actions">
-        <button class="share-btn" onclick="sharePost(\`${stripHTML(entry.content)}\`)">↗️ Share</button>
-      </div>
-    </div>`;
+function showDiaries(diaries) {
+  diaryContainer.innerHTML = '';
+  diaries.slice(0, shownCount).forEach(diary => {
+    const div = document.createElement('div');
+    div.className = 'diary';
+    div.innerHTML = `<strong>${diary.date}</strong><p>${diary.text}</p>`;
+    diaryContainer.appendChild(div);
+  });
 }
 
-    function displayPosts() {
-      const keyword = searchInput.value.toLowerCase();
-      const filtered = diaries.filter(d =>
-        d.content.toLowerCase().includes(keyword)
-      );
-      const toShow = filtered.slice(0, visibleCount + postsPerPage);
-      postContainer.innerHTML = toShow.map(createPostHTML).join('');
-      visibleCount = toShow.length;
-
-      // Sembunyikan tombol jika semua sudah tampil
-      loadMoreBtn.style.display = visibleCount >= filtered.length ? 'none' : 'block';
-    }
-
-    searchInput.addEventListener('input', () => {
-      visibleCount = 0;
-      displayPosts();
-    });
-
-    loadMoreBtn.addEventListener('click', () => {
-      displayPosts();
-    });
-
-    // Load awal
-    displayPosts();
-    function stripHTML(html) {
-  const div = document.createElement('div');
-  div.innerHTML = html;
-  return div.innerText;
+function loadInitial() {
+  shownCount = batchSize;
+  showDiaries(diaryData);
 }
 
-function sharePost(content) {
-  if (navigator.share) {
-    navigator.share({
-      title: 'Diary from Delta',
-      text: content,
-      url: window.location.href
-    }).then(() => {
-      console.log('Shared successfully');
-    }).catch((err) => {
-      console.error('Share failed:', err);
-    });
-  } else {
-    alert("Sharing is not supported on this browser.");
+calendarIcon.addEventListener('click', () => {
+  calendarPopup.style.display = calendarPopup.style.display === 'block' ? 'none' : 'block';
+});
+
+document.addEventListener('click', (e) => {
+  if (!calendarPopup.contains(e.target) && !calendarIcon.contains(e.target)) {
+    calendarPopup.style.display = 'none';
   }
-}
-  </script>
+});
+
+loadMore.addEventListener('click', () => {
+  shownCount += batchSize;
+  showDiaries(diaryData);
+});
+
+const filterBtn = document.getElementById('filterBtn');
+const resetBtn = document.getElementById('resetBtn');
+
+filterBtn.addEventListener('click', () => {
+  const startDate = document.getElementById('startDate').value;
+  const endDate = document.getElementById('endDate').value;
+
+  if (startDate && endDate) {
+    const filtered = diaryData.filter(diary => diary.date >= startDate && diary.date <= endDate);
+    shownCount = filtered.length;
+    showDiaries(filtered);
+    loadMore.style.display = 'none';
+  }
+});
+
+resetBtn.addEventListener('click', () => {
+  loadInitial();
+  loadMore.style.display = 'block';
+  document.getElementById('startDate').value = '';
+  document.getElementById('endDate').value = '';
+});
+
+// Start page
+loadInitial();
+</script>
+
 </body>
 </html>
