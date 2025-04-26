@@ -10,9 +10,14 @@
   <header class="tumblr-header">
     <div class="logo">Diaries</div>
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search diaries..." />
-      <span>🔍</span>
-    </div>
+  <label for="startDate">Dari tanggal:</label>
+  <input type="text" id="startDate" placeholder="Pilih tanggal awal" readonly />
+  <img src="calendar-icon.png" alt="Calendar" id="calendarIconStart" style="cursor: pointer; width: 20px; height: 20px;">
+
+  <label for="endDate">Sampai tanggal:</label>
+  <input type="text" id="endDate" placeholder="Pilih tanggal akhir" readonly />
+  <img src="calendar-icon.png" alt="Calendar" id="calendarIconEnd" style="cursor: pointer; width: 20px; height: 20px;">
+</div>
   </header>
 
   <main class="tumblr-feed" id="postContainer"></main>
