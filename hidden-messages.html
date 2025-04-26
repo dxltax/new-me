@@ -9,7 +9,20 @@
 <body>
   <header>
   <h1>Messages You’ll Never Read</h1>
-  <div class="sort-options">🕒 Sort by Time</div>
+  <div class="sort-filter">
+  <label for="sort">🕒 Sort by:</label>
+  <select id="sort">
+    <option value="latest">Newest</option>
+    <option value="oldest">Oldest</option>
+  </select>
+
+  <label for="filter">🔍 Filter:</label>
+  <select id="filter">
+    <option value="all">All</option>
+    <option value="with-image">With Images</option>
+    <option value="no-image">Without Images</option>
+  </select>
+</div>
 </header>
 
 <!-- ... chat-container remains as yours ... -->
