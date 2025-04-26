@@ -1,3 +1,4 @@
+/* GENERAL */
 body {
   margin: 0;
   padding: 0;
@@ -6,9 +7,9 @@ body {
   color: #333;
 }
 
-/* Header ala Tumblr */
+/* HEADER ala Tumblr */
 .tumblr-header {
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
@@ -25,6 +26,7 @@ body {
   color: #555;
 }
 
+/* SEARCH BAR */
 .search-bar {
   display: flex;
   align-items: center;
@@ -33,197 +35,7 @@ body {
   position: relative;
 }
 
-.tumblr-feed {
-  max-width: 680px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-/* Post Styling */
-.post {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  margin-bottom: 24px;
-  border: 1px solid #eee;
-}
-
-.post-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.post-profile {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.username {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.date {
-  font-size: 0.8rem;
-  color: #999;
-  margin: 2px 0 0 0;
-}
-
-.post-content p {
-  margin: 10px 0;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.post-content strong {
-  color: #222;
-}
-
-.post-actions {
-  margin-top: 16px;
-  font-size: 0.9rem;
-  display: flex;
-  gap: 16px;
-  color: #666;
-  cursor: pointer;
-}
-
-.post-actions span:hover {
-  color: #000;
-}
-.tumblr-feed {
-  padding: 20px;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.post {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-.post-header {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.post-profile {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.load-more-container {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-#loadMoreBtn {
-  padding: 10px 20px;
-  font-size: 16px;
-  background: #333;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-#loadMoreBtn:hover {
-  background: #555;
-}
-.share-btn {
-  background: none;
-  border: none;
-  color: #555;
-  font-size: 16px;
-  cursor: pointer;
-  padding: 5px 10px;
-  font-family: inherit;
-}
-
-.share-btn:hover {
-  text-decoration: underline;
-}
-.calendar-button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: #555;
-  cursor: pointer;
-}
-
-.calendar-text {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.date-picker-popup {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 15px;
-  z-index: 1000;
-}
-
-.date-picker-popup input {
-  margin: 5px 0;
-  padding: 6px 10px;
-  font-size: 0.9rem;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-.calendar-button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: #555;
-  cursor: pointer;
-}
-
-.calendar-text {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.date-picker-popup {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 15px;
-  z-index: 1000;
-}
-
-.date-picker-popup input {
-  margin: 5px 0;
-  padding: 6px 10px;
-  font-size: 0.9rem;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
+/* CALENDAR BAR */
 .calendar-bar {
   display: flex;
   align-items: center;
@@ -281,20 +93,27 @@ body {
   background-color: #555;
 }
 
-/* Kode lama CSS kamu */
+/* FEED */
+.tumblr-feed {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
 
+/* POST */
 .post {
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   padding: 20px;
   margin-bottom: 20px;
+  border: 1px solid #eee;
 }
 
-/* CSS baru ditambahkan di bawah */
 .post-header {
   display: flex;
   align-items: center;
+  gap: 15px;
   margin-bottom: 15px;
 }
 
@@ -303,7 +122,6 @@ body {
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
-  margin-right: 15px;
   border: 2px solid #ccc;
 }
 
@@ -320,15 +138,63 @@ body {
 }
 
 .post-date {
-  margin: 2px 0 0;
+  margin-top: 2px;
   font-size: 12px;
   color: #999;
 }
 
 .post-content p {
-  margin: 0;
+  margin: 10px 0 0 0;
   font-size: 16px;
   color: #555;
   line-height: 1.6;
 }
 
+/* POST ACTIONS */
+.post-actions {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  display: flex;
+  gap: 16px;
+  color: #666;
+  cursor: pointer;
+}
+
+.post-actions span:hover {
+  color: #000;
+}
+
+/* LOAD MORE */
+.load-more-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#loadMoreBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#loadMoreBtn:hover {
+  background: #555;
+}
+
+/* SHARE BUTTON */
+.share-btn {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-family: inherit;
+}
+
+.share-btn:hover {
+  text-decoration: underline;
+}
