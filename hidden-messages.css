@@ -1,48 +1,72 @@
+/* Reset & Base */
 body {
   margin: 0;
+  padding: 0 10px 80px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
   background-color: #0e0e10;
-  font-family: 'Courier New', Courier, monospace;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 10px 80px;
 }
 
+/* Header */
 header h1 {
+  font-size: 1.8em;
   color: #ffb6c1;
-  font-size: 1.6em;
-  margin-bottom: 20px;
+  margin: 20px 0 10px;
+  text-align: center;
 }
 
+/* Navigation */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #333;
+  z-index: 100;
+}
+
+.navbar a {
+  color: #ffb6c1;
+  text-decoration: none;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Chat Container */
 .chat-container {
   width: 100%;
   max-width: 480px;
+  margin-bottom: 80px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
+/* Bubble Style */
 .chat-bubble {
-  align-self: flex-end;
   background-color: #ffb6c1;
-  color: white;
-  padding: 10px 14px;
+  color: #1a1a1a;
+  padding: 12px 16px;
   border-radius: 18px;
   border-bottom-right-radius: 6px;
-  max-width: 75%;
-  font-size: 0.9em;
-  word-wrap: break-word;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  animation: fadeIn 0.3s ease;
+  max-width: 80%;
+  align-self: flex-end;
   position: relative;
-  margin-bottom: 10px; /* Tambahkan margin-bottom untuk memberi ruang antar bubble */
-}
-
-.chat-bubble img {
-  margin-top: 10px; /* Menambahkan jarak antara teks dan gambar */
-  max-width: 100%;
-  height: auto;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .chat-bubble::after {
@@ -55,48 +79,46 @@ header h1 {
   background-color: #ffb6c1;
   border-bottom-left-radius: 14px;
   transform: rotate(-45deg);
-  box-shadow: -1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
+/* Metadata */
 .chat-meta {
   font-size: 0.75em;
-  color: #f8f8f8;
-  margin-bottom: 2px; /* Dari 4px ke 2px */
+  color: #fff;
+  opacity: 0.7;
+  margin-bottom: 6px;
   font-weight: 500;
-  opacity: 1;
-  text-shadow: 0 0 2px #000;
 }
 
+/* Chat Text */
 .chat-text {
-  white-space: pre-line;
-  line-height: 1.3em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  font-weight: 500;
   font-size: 0.95em;
-  letter-spacing: 0.1px;
+  line-height: 1.4;
 }
 
 .chat-text p {
-  margin: 0 0 0.5em 0; /* atau bisa 0.3em kalau mau lebih rapat lagi */
+  margin: 0 0 0.5em;
 }
 
+/* Chat Image */
 .chat-image {
   margin-top: 10px;
-  border-radius: 12px;
+  border-radius: 10px;
   max-width: 100%;
-  max-height: 220px;
+  height: auto;
   object-fit: cover;
   border: 1px solid #2c2c2e;
 }
 
+/* Reply Box */
 #replyForm {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: 480px;
   gap: 8px;
-  margin-top: 20px; /* Kembali ke margin awal */
-  position: relative; /* Agar tetap berada di bawah area chat */
+  margin-top: 20px;
 }
 
 #replyInput {
@@ -112,34 +134,29 @@ header h1 {
 
 #replyForm button {
   padding: 10px 16px;
-  border-radius: 12px;
+  border-radius: 14px;
   background-color: #ffb6c1;
-  color: #121212;
+  color: #1a1a1a;
   border: none;
   font-weight: bold;
   cursor: pointer;
 }
 
+/* Back Link */
 .back-home {
-  display: block;
-  margin-top: 20px; /* Pastikan jaraknya tetap konsisten */
+  margin-top: 20px;
   text-align: center;
   font-size: 0.85em;
   color: #ffb6c1;
   text-decoration: none;
 }
 
-.reply-wrapper {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 480px;
-  justify-content: space-between;
-  gap: 8px;
+.back-home:hover {
+  text-decoration: underline;
 }
-#replyInput {
-  flex: 1;
-}
-#replyForm button {
-  margin-left: 0; /* Hapus margin kiri biar rata */
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
