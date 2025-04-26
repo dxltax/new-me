@@ -224,3 +224,59 @@ body {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+.calendar-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.calendar-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+}
+
+.calendar-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.date-picker-popup {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1000;
+}
+
+.date-picker-popup input {
+  margin: 5px 0;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.date-picker-popup button {
+  margin-top: 10px;
+  padding: 6px 10px;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.date-picker-popup button:hover {
+  background-color: #555;
+}
