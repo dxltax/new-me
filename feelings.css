@@ -198,3 +198,64 @@ body {
 .share-btn:hover {
   text-decoration: underline;
 }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.tumblr-feed {
+  max-width: 680px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.post {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 1px solid #e0e0e0;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.post-profile {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  border: 2px solid #eee;
+}
+
+.post-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+}
+
+.post-date {
+  margin-top: 2px;
+  font-size: 12px;
+  color: #888;
+}
+
+.post-content p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+}
