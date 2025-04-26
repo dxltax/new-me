@@ -1,31 +1,37 @@
-// Buka tutup kalender popup
-const calendarBtn = document.getElementById('calendarBtn');
-const datePickerPopup = document.getElementById('datePickerPopup');
-calendarBtn.addEventListener('click', () => {
-  datePickerPopup.style.display = datePickerPopup.style.display === 'block' ? 'none' : 'block';
-});
+// feelings.js
 
-// Filter diary berdasarkan tanggal
-const filterBtn = document.getElementById('filterBtn');
-filterBtn.addEventListener('click', () => {
-  const startDate = new Date(document.getElementById('startDate').value);
-  const endDate = new Date(document.getElementById('endDate').value);
-  
+document.addEventListener('DOMContentLoaded', function() {
+  const calendarButton = document.getElementById('calendarButton');
+  const datePopup = document.getElementById('datePickerPopup');
+  const filterButton = document.getElementById('filterBtn');
   const posts = document.querySelectorAll('.post');
-  
-  posts.forEach(post => {
-    const dateElement = post.querySelector('.date');
-    const postDate = new Date(dateElement.textContent);
-    
-    if (startDate && endDate) {
+
+  // Toggle tampil/sembunyi popup
+  calendarButton.addEventListener('click', function() {
+    datePopup.style.display = (datePopup.style.display === 'block') ? 'none' : 'block';
+  });
+
+  // Filter diary berdasarkan tanggal
+  filterButton.addEventListener('click', function() {
+    const startDate = new Date(document.getElementById('startDate').value);
+    const endDate = new Date(document.getElementById('endDate').value);
+
+    posts.forEach(function(post) {
+      const postDateStr = post.getAttribute('data-date'); 
+      if (!postDateStr) {
+        post.style.display = 'block';
+        return;
+      }
+
+      const postDate = new Date(postDateStr);
+
       if (postDate >= startDate && postDate <= endDate) {
         post.style.display = 'block';
       } else {
         post.style.display = 'none';
       }
-    }
+    });
+
+    datePopup.style.display = 'none'; // Tutup popup setelah klik Filter
   });
-  
-  // Tutup pop-up setelah cari
-  datePickerPopup.style.display = 'none';
 });
