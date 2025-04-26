@@ -1,60 +1,74 @@
-// feelings.js
+// DATE PICKER
+document.addEventListener("DOMContentLoaded", function () {
+  const calendarButton = document.querySelector(".calendar-button");
+  const datePickerPopup = document.querySelector(".date-picker-popup");
+  const startDateInput = document.getElementById("startDate");
+  const endDateInput = document.getElementById("endDate");
+  const saveDateButton = document.getElementById("saveDateButton");
+  const calendarText = document.querySelector(".calendar-text");
 
-document.addEventListener('DOMContentLoaded', function() {
-  const calendarButton = document.getElementById('calendarButton');
-  const datePopup = document.getElementById('datePickerPopup');
-  const filterButton = document.getElementById('filterBtn');
-  const posts = document.querySelectorAll('.post');
-
-  // Toggle tampil/sembunyi popup
-  calendarButton.addEventListener('click', function() {
-    datePopup.style.display = (datePopup.style.display === 'block') ? 'none' : 'block';
-  });
-
-  // Filter diary berdasarkan tanggal
-  filterButton.addEventListener('click', function() {
-    const startDate = new Date(document.getElementById('startDate').value);
-    const endDate = new Date(document.getElementById('endDate').value);
-
-    posts.forEach(function(post) {
-      const postDateStr = post.getAttribute('data-date'); 
-      if (!postDateStr) {
-        post.style.display = 'block';
-        return;
-      }
-
-      const postDate = new Date(postDateStr);
-
-      if (postDate >= startDate && postDate <= endDate) {
-        post.style.display = 'block';
-      } else {
-        post.style.display = 'none';
-      }
+  if (calendarButton && datePickerPopup && startDateInput && endDateInput && saveDateButton && calendarText) {
+    calendarButton.addEventListener("click", () => {
+      datePickerPopup.style.display = datePickerPopup.style.display === "block" ? "none" : "block";
     });
 
-    datePopup.style.display = 'none'; // Tutup popup setelah klik Filter
-  });
+    saveDateButton.addEventListener("click", () => {
+      const startDate = startDateInput.value;
+      const endDate = endDateInput.value;
+      if (startDate && endDate) {
+        calendarText.textContent = `${formatDate(startDate)} - ${formatDate(endDate)}`;
+        datePickerPopup.style.display = "none";
+      }
+    });
+  }
+
+  function formatDate(dateStr) {
+    const [year, month, day] = dateStr.split("-");
+    return `${day}/${month}/${year}`;
+  }
 });
-// Kode JS lama kamu
 
-// Fungsi untuk buat post baru
-function createPostHTML(entry) {
-  return `
-    <div class="post">
-      <div class="post-header">
-        <img src="093F2D22-7941-439C-B029-4D4308C9B1DA.jpeg" alt="Profile" class="post-profile">
-        <div class="post-user-info">
-          <h3 class="username">Delta</h3>
-          <p class="post-date">${entry.date}</p>
-        </div>
-      </div>
-      <div class="post-content">
-        <p>${entry.content}</p>
-      </div>
-    </div>
-  `;
-}
+// LOAD MORE POSTS
+document.addEventListener("DOMContentLoaded", function () {
+  const posts = document.querySelectorAll(".post");
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const postsPerPage = 5;
+  let visiblePosts = postsPerPage;
 
-// JS baru ditambahkan di bawah
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", showMorePosts);
+    showPosts();
+  }
 
+  function showPosts() {
+    posts.forEach((post, index) => {
+      post.style.display = index < visiblePosts ? "block" : "none";
+    });
 
+    if (visiblePosts >= posts.length) {
+      loadMoreBtn.style.display = "none";
+    }
+  }
+
+  function showMorePosts() {
+    visiblePosts += postsPerPage;
+    showPosts();
+  }
+});
+
+// SEARCH POSTS
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("searchInput");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      const query = this.value.trim().toLowerCase();
+      const posts = document.querySelectorAll(".post");
+
+      posts.forEach(post => {
+        const text = post.textContent.toLowerCase();
+        post.style.display = text.includes(query) ? "block" : "none";
+      });
+    });
+  }
+});
