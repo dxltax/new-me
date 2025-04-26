@@ -35,3 +35,26 @@ document.addEventListener('DOMContentLoaded', function() {
     datePopup.style.display = 'none'; // Tutup popup setelah klik Filter
   });
 });
+// Kode JS lama kamu
+
+// Fungsi untuk buat post baru
+function createPostHTML(entry) {
+  return `
+    <div class="post">
+      <div class="post-header">
+        <img src="093F2D22-7941-439C-B029-4D4308C9B1DA.jpeg" alt="Profile" class="post-profile">
+        <div class="post-user-info">
+          <h3 class="username">Delta</h3>
+          <p class="post-date">${entry.date}</p>
+        </div>
+      </div>
+      <div class="post-content">
+        <p>${entry.content}</p>
+      </div>
+    </div>
+  `;
+}
+
+// JS baru ditambahkan di bawah
+
+
