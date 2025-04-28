@@ -343,3 +343,18 @@ body {
   font-weight: 600;
   color: #fff; /* atau warna teksmu */
 }
+.shareBtn {
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.shareBtn:hover {
+  background-color: #ff5722;
+}
+
+
