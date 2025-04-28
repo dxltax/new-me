@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diary Page</title>
@@ -280,13 +281,32 @@ const batchSize = 5;
 
 function showDiaries(diaries) {
   diaryContainer.innerHTML = '';
-  diaries.slice(0, shownCount).forEach(diary => {
+  diaries.slice(0, shownCount).forEach((diary, index) => {
     const div = document.createElement('div');
     div.className = 'diary';
-    div.innerHTML = `<strong>${diary.date}</strong><p>${diary.text}</p>`;
+    div.innerHTML = `
+      <strong>${diary.date}</strong>
+      <p>${diary.text}</p>
+      <button class="shareBtn" data-index="${index}">Share</button>
+    `;
     diaryContainer.appendChild(div);
   });
+
+  // Setelah diary muncul ➔ pasang event click untuk semua tombol Share
+  const shareButtons = document.querySelectorAll('.shareBtn');
+  shareButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const diaryDiv = e.target.parentElement; // ambil div diary yg mau di-share
+      html2canvas(diaryDiv).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `diary-${Date.now()}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    });
+  });
 }
+
 
 function loadInitial() {
   shownCount = batchSize;
