@@ -308,14 +308,17 @@ function showDiaries(diaries) {
   shareButtons.forEach(button => {
     button.addEventListener('click', (e) => {
       const diaryDiv = e.target.parentElement; // ambil div diary yg mau di-share
-      html2canvas(diaryDiv).then(canvas => {
-        const link = document.createElement('a');
-        link.download = `diary-${Date.now()}.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-      });
+      html2canvas(diaryDiv, {
+      scale: 3,        // lebih tinggi, lebih tajam
+      useCORS: true    // penting kalau pakai gambar eksternal
+    }).then(canvas => {
+      const link = document.createElement('a');
+      link.download = `diary-${Date.now()}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
     });
   });
+});
 }
 
 
