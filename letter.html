@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Letter for You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(ellipse at top, #1a1a2e, #000);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      box-shadow: 
+        0 0 5px #fff,
+        0 0 10px #0ff,
+        0 0 15px #0ff;
+      animation: sparkle 2s infinite ease-in-out;
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.6);
+      }
+    }
+
+    .letter-container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 30px 40px;
+      max-width: 600px;
+      text-align: left;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+      position: relative;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      color: #0ff;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #f0f0f0;
+    }
+
+    .date {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .sparkle::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    /* optional animation background */
+    .bg-animation {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png');
+      opacity: 0.05;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-animation"></div>
+
+  <div class="letter-container">
+    <h1>A Letter for You</h1>
+    <div class="date">Written on June 2nd, 2025</div>
+    <p>
+      Hey, how’ve you been?<br><br>
+      Can’t believe you’re still willing to read this hehe. But since you are, I just wanna say, I’ve finally come to terms with everything. I’m learning to accept that we really had to go our separate ways.<br><br>
+      I still miss you sometimes. And ya, I’ve cried more than I’d like to admit. But deep down, I get it now, we can’t force something that just isn’t meant to stay the same.<br><br>
+      Still, a part of me hopes that maybe someday, when you’re ready, we can reconnect (just as friends) like you once wished.<br><br>
+      Take care of yourself yaaa. And until then… I’m always wishing you the best.
+    </p>
+  </div>
+
+  <!-- Sparkles -->
+  <script>
+    for (let i = 0; i < 100; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.top = Math.random() * 100 + 'vh';
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      document.body.appendChild(sparkle);
+    }
+  </script>
+</body>
+</html>
